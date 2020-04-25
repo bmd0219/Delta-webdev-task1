@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="taskdes.css">
+        <title>TASK1</title>
+        
+    </head>
+    
+    <body bgcolor="#000000">
+        <!-- <br>
+        <button class="b" onclick="javascript:stopc();">stop timer</button>
+        <br> -->
+        
+        <center>
+            <p class="scores" id="score">CURRENT HIGH SCORES</p>
+            <p class="scores" id="tscore">Your score:</p>
+            <div class="stopclock" id="username">Username:</div>
+            <br>
+            <div class="stopclock" id="sc">TIME:00:000s</div>
+            <br>
+            <input type="button" value="New Game"class="b" onclick="javascript:cd();"></input>
+            <input type="button" class="b" value="New user" onclick="javascript:getusername();"></input>
+            <br><br>
+            <div class="screenfull" style="display: none;" id="game">
+                <div class="table">
+                    <div class="button bt" id="btn1" onclick="javascript:oc('1');"></div>
+                    <div class='button bt' id="btn2" onclick="javascript:oc('2');"></div>
+                    <div class='button bt' id="btn3" onclick="javascript:oc('3');"></div>
+                    <div class='button bt' id="btn4" onclick="javascript:oc('4');"></div>
+                    <div class='button bt' id="btn5" onclick="javascript:oc('5');"></div>
+                    <br>
+                    <div class='button bt' id="btn6" onclick="javascript:oc('6');"></div>
+                    <div class='button bt' id="btn7" onclick="javascript:oc('7');"></div>
+                    <div class='button bt' id="btn8" onclick="javascript:oc('8');"></div>
+                    <div class='button bt' id="btn9" onclick="javascript:oc('9');"></div>
+                    <div class='button bt' id="btn10" onclick="javascript:oc('10');"></div>
+                    <br>
+                    <div class='button bt' id="btn11" onclick="javascript:oc('11');"></div>
+                    <div class='button bt' id="btn12" onclick="javascript:oc('12');"></div>
+                    <div class='button bt' id="btn13" onclick="javascript:oc('13');"></div>
+                    <div class='button bt' id="btn14" onclick="javascript:oc('14');"></div>
+                    <div class='button bt' id="btn15" onclick="javascript:oc('15');"></div>
+                    <br>
+                    <div class='button bt' id="btn16" onclick="javascript:oc('16');"></div>
+                    <div class='button bt' id="btn17" onclick="javascript:oc('17');"></div>
+                    <div class='button bt' id="btn18" onclick="javascript:oc('18');"></div>
+                    <div class='button bt' id="btn19" onclick="javascript:oc('19');"></div>
+                    <div class='button bt' id="btn20" onclick="javascript:oc('20');"></div>
+                </div>
+            </div>
+            <div class="screenfull" style="display: block;" id="start">
+                <div class="table">
+                    <div style="font-size: 168px;" onclick="javascript:cd();"> <center>START</center></div>
+                </div>
+            </div>  
+            <div class="screenfull" style="display: none;" id="cdown">
+                <div class="table">
+                    <div class="countdown" id="ctext">3</div>
+                </div>
+            </div>   
+            <p>
+                Click the numbers as quickly as you can.
+            </p>
+        </center>
+        <script>
+            var a2 = [];
+            let r = 1;
+            let starttime ,endtime;
+            let sclock;
+            let timerr = false;
+            let y = document.getElementById("score");
+            let x = document.getElementById("tscore");
+            var score;
+            var user;
+            let no;
+            // localStorage.clear();
+            no = Number(localStorage.getItem("no"));
+            let userl=document.getElementById("username");
+            updatehighscore();
+            // if(no == null){
+            //     no = 0;
+            //     y.innerHTML = no;
+            // }
+            // else{
+            function updatehighscore(){  
+                y.innerHTML = "CURRENT HIGH SCORES" ; 
+                if(no<=5){
+                for(i=1;i<=no;i+=1){
+                    let sp = localStorage.getItem(`score${i}`);
+                    let np = localStorage.getItem(`name${i}`);
+                    y.innerHTML = y.innerHTML + "<br>" +`${i} ${np} ${sp}`;
+                }
+                }
+                else{
+                    for(i=1;i<=5;i+=1){
+                    let sp = localStorage.getItem(`score${i}`);
+                    let np = localStorage.getItem(`name${i}`);
+                    y.innerHTML = y.innerHTML + "<br>" +`${i} ${np} ${sp}`;
+                }
+                }
+            }
+            // // }
+            // scores = localStorage.getItem('scores');
+            // if(scores == null){
+            //     y.innerHTML = "Scores not yet recorded";
+            // }
+            // else{
+            //     y.innerHTML = scores;
+                // let l = scores.length;
+                // if(l <= 5){
+                //     for(i = 0;i < scores.length();i+=1){
+                //         y.innerHTML = y.innerHTML + `\n ${scores[i][0]}  ${scores[i][1]}`;
+                //     }
+                // }
+                // else{
+                //     for(i = 0;i < 5;i += 1){
+                //         y.innerHTML = y.innerHTML + `\n ${scores[i][0]}  ${scores[i][1]}`;
+                //     }
+                // }
+            // }
+            // y.innerHTML = "Highest timing : " + scores[0];
+            // let diff = localStorage.getItem("difference");
+            // y.innerHTML = diff;
+            
+            // game.setAttribute("style","dislpay: none;");
+            
+            // game1.setAttribute("style","display: inline-block;");
+            // function sg(){
+            //     let gameL = document.getElementById("game");
+            //     let cdownl = document.getElementById("cdown");
+            //     let startL = document.getElementById("start");
+            //     startL.setAttribute("style","display: none;");
+            //     cdownl.setAttribute("style","display: block;");
+            // }
+            function getusername(){
+                user = prompt("Enter User Name","");
+                userl.innerHTML = "Username: " + user;
+            }
+            function randomn(){
+                r = 1;
+                let a1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+                let a3 = [];
+                let n = 20;
+                let n1 = 0;
+                let e = 5;
+                for(i = 0;i<20;i++){
+                    let m = n1 + Math.floor(Math.random() * n);
+                    a2[i] = a1[m];
+                    a3[i] = a1[m];
+                    a1[m] = 0;
+                    a1.sort();
+                    n -= 1;
+                    n1 += 1;
+                }
+                let k;
+                for(i = 1;i <= 20;i += 1){
+                    let x = document.getElementById(`btn${i}`);
+                    x.innerHTML = a2[i-1];
+                    k = 0.1 + a2[i-1] / 50;
+                    x.setAttribute("style",`background-color: rgb(0, 128, 0,${k});`);
+                }
+            }
+            function refresh(){
+                let k;
+                for(i = 1;i <= 20;i += 1){
+                    let x = document.getElementById(`btn${i}`);
+                    x.innerHTML = a2[i-1];
+                    k = 0.1 + a2[i-1] / 50;
+                    x.setAttribute("style",`background-color: rgb(0, 128, 0,${k});`);
+                }
+            }
+            function oc(num){
+                if(a2[num - 1] == 40){
+                    if(a2[num - 1] <= 20 && a2[num - 1] >= 1){
+                        a2[num - 1] += 20;
+                    }
+                    else
+                        a2[num - 1] = "";   
+                    refresh();
+                    stopc();
+                }
+                if(a2[num - 1] == r){
+                    r += 1;
+                    if(a2[num - 1] <= 20 && a2[num - 1] >= 1){
+                        a2[num - 1] += 20;
+                    }
+                    else
+                        a2[num - 1] = "";   
+                    refresh();
+                }
+            }
+            let a = 2;
+            let t,ty;
+            let startL = document.getElementById("start");
+            let cdownl = document.getElementById("cdown");
+            let gameL = document.getElementById("game");
+            
+            function cd(){
+                if(user == null){
+                    user = prompt("Enter User Name","");
+                    userl.innerHTML = "Username: " + user;
+                }
+                a = 2;
+                gameL.setAttribute("style","display: none;")
+                startL.setAttribute("style","display: none;");
+                cdownl.setAttribute("style","display: inline-block;");
+                let ctextl = document.getElementById("ctext");
+                ctextl.innerHTML = 3;
+                ty = setInterval(set,1000);
+                t = setTimeout(cancel,3000);
+            }
+            function set(){
+                let ctextl = document.getElementById("ctext");
+                ctextl.innerHTML = a;
+                a -= 1 ;
+            }
+            function cancel(){
+                clearInterval(ty);
+                clearTimeout(t);
+                cdownl.setAttribute("style","display: none;");
+                gameL.setAttribute("style","display: inline-block;");
+                randomn();
+                startc();
+            }
+            function startc(){
+                starttime = new Date().getTime();
+                if(timerr == true){
+                    timerr = false;
+                    clearInterval(sclock);
+                }
+                timerr = true;
+                sclock = setInterval(update,1);
+            }
+            function update(){
+                let updatetime = new Date().getTime();
+                let difference = updatetime - starttime;
+                let s = document.getElementById("sc");
+                let seconds = Math.floor(difference / 1000);
+                let milliseconds = difference % 1000;
+                seconds = (seconds < 10) ? "0" + seconds : seconds;
+                milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
+                score = seconds + ":" + milliseconds;
+                s.innerHTML = "TIME:"+ score;
+            }
+            function stopc(){
+                clearInterval(sclock);
+                timerr = false;
+                let s = document.getElementById("sc");
+                updatescore(score);
+                gameL.setAttribute("style","display: none;");
+                startL.setAttribute("style","display: block;")
+                sortandstore();
+                // checkandscore();
+                updatehighscore();
+                // scores = `${user} + "--" + ${timescore}`;
+                // scores.push([timescore,user]);
+                // y.innerHTML = scores[0][0] + "--" + scores[0][1];
+                
+            }
+            function updatescore(timescorekk){
+                x.innerHTML = "Your Score : " + timescorekk;
+            }
+            function hello(){
+                alert("hello");
+            }
+            function restart1(){
+                gameL.setAttribute("style","display: none;");
+                startL.setAttribute("style","display: inline-block;");
+                startL.innerHTML = "RESTART"
+                if(no<=5){
+                for(i=1;i<=no;i+=1){
+                    let sp = localStorage.getItem(`score${i}`);
+                    let np = localStorage.getItem(`name${i}`);
+                    startL.innerHTML = startL.innerHTML + "<br>" +`${i} ${np} ${sp}`;
+                }
+                }
+                else{
+                    for(i=1;i<=5;i+=1){
+                    let sp = localStorage.getItem(`score${i}`);
+                    let np = localStorage.getItem(`name${i}`);
+                    startL.innerHTML = startL.innerHTML +"<br>" + `${i} ${np} ${sp}`;
+                }
+                } 
+            }
+            function sortandstore(){ 
+                // sortByCol(scores,0);
+                no += 1;
+                if(no == 1){
+                    localStorage.setItem(`score${no}`,score);
+                    localStorage.setItem(`name${no}`,user);
+                    localStorage.setItem("no",no);
+                }
+                else{
+                    localStorage.setItem("no",no);
+                    for(let i=1;i<no;i++)
+                    {
+                        if(score < localStorage.getItem(`score${i}`))
+                        {
+                            for(let j=no;j>i;j--)
+                            {   let r= j-1;
+                                let sp = localStorage.getItem(`score${r}`);
+                                let np = localStorage.getItem(`name${r}`);
+                                // console.log(np,'swapped with',sp);
+                                localStorage.setItem(`score${j}`,sp);
+                                localStorage.setItem(`name${j}`,np);
+                            }
+                            localStorage.setItem(`score${i}`,score);
+                            localStorage.setItem(`name${i}`,user);
+                            break;
+                        }
+                        else{
+                            localStorage.setItem(`score${no}`,score);
+                            localStorage.setItem(`name${no}`,user);
+                        }
+                    }
+                }
+            }
+            function checkandscore(){
+                if(no == 0){
+                    no += 1;
+                    localStorage.setItem(`score${no}`,score);
+                    localStorage.setItem(`name${no}`,user);
+                    localStorage.setItem("no",no);
+                }
+                else{
+                    let i;
+                    let k = 0;
+                    for(let i=1;i<=no;i++){
+                        if(user === localStorage.getItem(`name${i}`)){
+                            if(score < localStorage.getItem(`score${i}`)){
+                                localStorage.setItem(`score${i}`,score);
+                                k = 1;
+                            }
+                            break;
+                        }
+                    }
+                    if(k == 1){
+                        no += 1;
+                        localStorage.setItem(`score${no}`,score);
+                        localStorage.setItem(`name${no}`,user); 
+                        localStorage.setItem("no",no);
+                    }
+                }
+            }
+            // function sortByCol(arr, colIndex){
+            //     arr.sort(sortFunction)
+            //     function sortFunction(a, b) {
+            //         a1 = a[colIndex]
+            //         b1 = b[colIndex]
+            //         return (a1 === b1) ? 0 : (a1 < b1) ? -1 : 1
+            //     }
+            // }
+        </script>
+    </body>
+</html>
