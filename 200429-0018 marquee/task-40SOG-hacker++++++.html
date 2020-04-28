@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="taskdes.css">
+        <title>TASK</title>
+        
+    </head>
+    
+    <body bgcolor="#000000">
+        <audio id="introbeats">
+            <source src="sound_mix.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio> 
+        <audio id="btnclick">
+            <!-- <source src="horse.ogg" type="audio/ogg"> -->
+            <source src="btnclick.mp3" type="audio/mpeg">
+            <!-- Your browser does not support the audio element. -->
+        </audio>
+        <!-- <audio id="gamestart">
+            <source src="sound_mix.mp3" type="audio/mpeg"> 
+        </audio> -->
+        <!-- <embed src="sound_mix.mp3" type="audio/mpeg" autostart="true" loop="true" hidden="true"> -->
+           
+        <!-- <br>
+        <button class="b" onclick="javascript:stopc();">stop timer</button>
+        <br> -->
+        
+        
+            <div class="topheader"><div class="textcontent">40 SHADES OF GRAY</div></div>
+            <p class="scores" id="score">SCORE CARD</p>
+            
+            <br>
+            <input type="button" class="b" value="New user" onclick="javascript:getusername();"></input>
+            <input type="button" value="New Game"class="b" onclick="javascript:cd();"></input>
+            <input type="button" class="b" onclick="javascript:clearscores();" value="Clear Scores"id="clears"></input><br><br>
+            <label for="difficulty">Level:</label>
+            <select name="difficulty" class = "a"id="difficulty">
+                <option value="Easy" class = "a">Easy</option>
+                <option value="Normal" class = "a">Normal</option>
+                <option value="Hard" class = "a">Hard</option>
+            </select>
+            &NonBreakingSpace;
+            <label for="grid">Grid:</label>
+            <select name="grid" class = "a" id="grid">
+                <option value="4x5">4 x 5</option>
+                <option value="4x6">4 x 6</option>
+            </select>
+            <br><br>
+            <div style="font-size: inherit;">
+                <div class="stopclock" id="username">Username:</div>
+                <div class="scores" style="display: none;" id="tscore">Your score:</div>
+                <div class="stopclock" id="sc">TIME:00:000s</div>
+            </div>
+            <div class="screenfull" style="display: none;" id="bgame">
+                <div class="table" style="margin:5px 0px ;">
+                    <div class="marqueeL5">
+                        <div class="marqueeL5--inner">
+                            <span>
+                                <div class="button bt" id="1btn1" onclick="javascript:oc('1');"></div>
+                                <div class='button bt' id="1btn2" onclick="javascript:oc('2');"></div>
+                                <div class='button bt' id="1btn3" onclick="javascript:oc('3');"></div>
+                                <div class='button bt' id="1btn4" onclick="javascript:oc('4');"></div>
+                                <div class='button bt' id="1btn5" onclick="javascript:oc('5');"></div>
+                            </span>
+                            <span>
+                                <div class="button bt" id="2btn1" onclick="javascript:oc('1');"></div>
+                                <div class='button bt' id="2btn2" onclick="javascript:oc('2');"></div>
+                                <div class='button bt' id="2btn3" onclick="javascript:oc('3');"></div>
+                                <div class='button bt' id="2btn4" onclick="javascript:oc('4');"></div>
+                                <div class='button bt' id="2btn5" onclick="javascript:oc('5');"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="marqueeR5">
+                        <div class="marqueeR5--inner">
+                            <span>
+                                <div class="button bt" id="1btn6" onclick="javascript:oc('6');"></div>
+                                <div class='button bt' id="1btn7" onclick="javascript:oc('7');"></div>
+                                <div class='button bt' id="1btn8" onclick="javascript:oc('8');"></div>
+                                <div class='button bt' id="1btn9" onclick="javascript:oc('9');"></div>
+                                <div class='button bt' id="1btn10" onclick="javascript:oc('10');"></div>
+                            </span>
+                            <span>
+                                <div class="button bt" id="2btn6" onclick="javascript:oc('6');"></div>
+                                <div class='button bt' id="2btn7" onclick="javascript:oc('7');"></div>
+                                <div class='button bt' id="2btn8" onclick="javascript:oc('8');"></div>
+                                <div class='button bt' id="2btn9" onclick="javascript:oc('9');"></div>
+                                <div class='button bt' id="2btn10" onclick="javascript:oc('10');"></div>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="marqueeL5">
+                        <div class="marqueeL5--inner">
+                            <span>
+                                <div class="button bt" id="1btn11" onclick="javascript:oc('11');"></div>
+                                <div class='button bt' id="1btn12" onclick="javascript:oc('12');"></div>
+                                <div class='button bt' id="1btn13" onclick="javascript:oc('13');"></div>
+                                <div class='button bt' id="1btn14" onclick="javascript:oc('14');"></div>
+                                <div class='button bt' id="1btn15" onclick="javascript:oc('15');"></div>
+                            </span>
+                            <span>
+                                <div class="button bt" id="2btn11" onclick="javascript:oc('11');"></div>
+                                <div class='button bt' id="2btn12" onclick="javascript:oc('12');"></div>
+                                <div class='button bt' id="2btn13" onclick="javascript:oc('13');"></div>
+                                <div class='button bt' id="2btn14" onclick="javascript:oc('14');"></div>
+                                <div class='button bt' id="2btn15" onclick="javascript:oc('15');"></div>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="marqueeR5">
+                        <div class="marqueeR5--inner">
+                            <span>
+                                <div class="button bt" id="1btn16" onclick="javascript:oc('16');"></div>
+                                <div class='button bt' id="1btn17" onclick="javascript:oc('17');"></div>
+                                <div class='button bt' id="1btn18" onclick="javascript:oc('18');"></div>
+                                <div class='button bt' id="1btn19" onclick="javascript:oc('19');"></div>
+                                <div class='button bt' id="1btn20" onclick="javascript:oc('20');"></div>
+                            </span>
+                            <span>
+                                <div class="button bt" id="2btn16" onclick="javascript:oc('16');"></div>
+                                <div class='button bt' id="2btn17" onclick="javascript:oc('17');"></div>
+                                <div class='button bt' id="2btn18" onclick="javascript:oc('18');"></div>
+                                <div class='button bt' id="2btn19" onclick="javascript:oc('19');"></div>
+                                <div class='button bt' id="2btn20" onclick="javascript:oc('20');"></div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="screenfull" style="display: none;" id="agame">
+                <div class="table" style="margin:5px 0px ;">
+                    <div class="marqueeL6">
+                        <div class="marqueeL6--inner">
+                            <span>
+                                <div class="button bt" id="1atn1" onclick="javascript:oc('1');"></div>
+                                <div class='button bt' id="1atn2" onclick="javascript:oc('2');"></div>
+                                <div class='button bt' id="1atn3" onclick="javascript:oc('3');"></div>
+                                <div class='button bt' id="1atn4" onclick="javascript:oc('4');"></div>
+                                <div class='button bt' id="1atn5" onclick="javascript:oc('5');"></div>
+                                <div class="button bt" id="1atn6" onclick="javascript:oc('6');"></div>
+                            </span>
+                            <span>
+                                <div class="button bt" id="2atn1" onclick="javascript:oc('1');"></div>
+                                <div class='button bt' id="2atn2" onclick="javascript:oc('2');"></div>
+                                <div class='button bt' id="2atn3" onclick="javascript:oc('3');"></div>
+                                <div class='button bt' id="2atn4" onclick="javascript:oc('4');"></div>
+                                <div class='button bt' id="2atn5" onclick="javascript:oc('5');"></div>
+                                <div class="button bt" id="2atn6" onclick="javascript:oc('6');"></div>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="marqueeR6">
+                        <div class="marqueeR6--inner">
+                            <span>
+                                <div class='button bt' id="1atn7" onclick="javascript:oc('7');"></div>
+                                <div class='button bt' id="1atn8" onclick="javascript:oc('8');"></div>
+                                <div class='button bt' id="1atn9" onclick="javascript:oc('9');"></div>
+                                <div class='button bt' id="1atn10" onclick="javascript:oc('10');"></div>
+                                <div class="button bt" id="1atn11" onclick="javascript:oc('11');"></div>
+                                <div class='button bt' id="1atn12" onclick="javascript:oc('12');"></div>
+                            </span>
+                            <span>
+                                <div class='button bt' id="2atn7" onclick="javascript:oc('7');"></div>
+                                <div class='button bt' id="2atn8" onclick="javascript:oc('8');"></div>
+                                <div class='button bt' id="2atn9" onclick="javascript:oc('9');"></div>
+                                <div class='button bt' id="2atn10" onclick="javascript:oc('10');"></div>
+                                <div class="button bt" id="2atn11" onclick="javascript:oc('11');"></div>
+                                <div class='button bt' id="2atn12" onclick="javascript:oc('12');"></div>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="marqueeL6">
+                        <div class="marqueeL6--inner">
+                            <span>
+                                <div class='button bt' id="1atn13" onclick="javascript:oc('13');"></div>
+                                <div class='button bt' id="1atn14" onclick="javascript:oc('14');"></div>
+                                <div class='button bt' id="1atn15" onclick="javascript:oc('15');"></div>
+                                <div class="button bt" id="1atn16" onclick="javascript:oc('16');"></div>
+                                <div class='button bt' id="1atn17" onclick="javascript:oc('17');"></div>
+                                <div class='button bt' id="1atn18" onclick="javascript:oc('18');"></div>
+                            </span>
+                            <span>
+                                <div class='button bt' id="2atn13" onclick="javascript:oc('13');"></div>
+                                <div class='button bt' id="2atn14" onclick="javascript:oc('14');"></div>
+                                <div class='button bt' id="2atn15" onclick="javascript:oc('15');"></div>
+                                <div class="button bt" id="2atn16" onclick="javascript:oc('16');"></div>
+                                <div class='button bt' id="2atn17" onclick="javascript:oc('17');"></div>
+                                <div class='button bt' id="2atn18" onclick="javascript:oc('18');"></div>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="marqueeR6">
+                        <div class="marqueeR6--inner">
+                            <span>
+                                <div class='button bt' id="1atn19" onclick="javascript:oc('19');"></div>
+                                <div class='button bt' id="1atn20" onclick="javascript:oc('20');"></div>
+                                <div class='button bt' id="1atn21" onclick="javascript:oc('21');"></div>
+                                <div class='button bt' id="1atn22" onclick="javascript:oc('22');"></div>
+                                <div class='button bt' id="1atn23" onclick="javascript:oc('23');"></div>
+                                <div class='button bt' id="1atn24" onclick="javascript:oc('24');"></div>
+                            </span>
+                            <span>
+                                <div class='button bt' id="2atn19" onclick="javascript:oc('19');"></div>
+                                <div class='button bt' id="2atn20" onclick="javascript:oc('20');"></div>
+                                <div class='button bt' id="2atn21" onclick="javascript:oc('21');"></div>
+                                <div class='button bt' id="2atn22" onclick="javascript:oc('22');"></div>
+                                <div class='button bt' id="2atn23" onclick="javascript:oc('23');"></div>
+                                <div class='button bt' id="2atn24" onclick="javascript:oc('24');"></div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <center> -->
+            <div class="screenfull" onclick="javascript:cd();" style="display: inline-block; line-height: 12em;" id="start">
+               
+                <div  style="display: inline-block; text-align: center;">
+                        <div class="tablescr" style="color: black; text-align: center;"id="result">START
+                            <!-- <br>
+                            <p style="display: inline-block; height:50px; line-height: 0px; font-size: 24px; color: black; text-align: center;">
+                                Click the numbers as quickly as you can.
+                            </p> -->
+                           
+                        </div>
+                        
+                </div>
+                
+            </div>  
+
+            <!-- </center> -->
+            <div class="screenfull" style="display: none;" id="cdown">
+                <div class="tablescr">
+                    <div class = "countdown" id="ctext">3</div>
+                </div>
+            </div>   
+            <p style="font-size: 24px;">
+                Click the numbers as quickly as you can.
+            </p>
+        <!-- <script>
+            let gamestartS = document.getElementById("gamestart");
+            gamestartS.play();
+        </script> -->
+        <script>
+            var a2 = [];
+            let dlevel;
+            let glevel;
+            let r = 1;
+            let starttime ,endtime;
+            let sclock;
+            let timerr = false;
+            let y = document.getElementById("score");
+            let x = document.getElementById("tscore");
+            var btnclickS = document.getElementById("btnclick"); 
+            var introbeatsL = document.getElementById("introbeats");
+            let bname;
+            var score;
+            var user;
+            let no;
+            let boxes;
+            let gameL;
+            let gz;
+            let difficultyl = document.getElementById("difficulty");
+            let gridl = document.getElementById("grid");
+            let startL = document.getElementById("start");
+            let cdownl = document.getElementById("cdown");
+            let resultl = document.getElementById("result");
+            function getgrid(){
+                glevel = gridl.value;
+                if(glevel == "4x5"){
+                    gz = 20;
+                    bname = 'b';
+                    gameL = document.getElementById(`bgame`);
+                }
+                else{
+                    gz = 24;
+                    bname = 'a';
+                    gameL = document.getElementById(`agame`);
+                }
+                // updatehighscore();
+            }
+            function difflevel(){
+                dlevel = difficultyl.value;
+                let layers = 0;
+                if(dlevel == "Easy"){
+                    layers = 1;
+                } 
+                else if(dlevel == "Normal"){
+                    layers = 2;
+                }
+                else{
+                    layers = 3;
+                }
+                boxes = gz*layers;
+                // updatehighscore();
+            }
+            function clearscores(){
+                localStorage.clear();
+                no = 0;
+                updatehighscore();
+            }
+            
+            difflevel();
+            getgrid();
+            introbeatsL.play();
+            no = Number(localStorage.getItem(`${glevel}${dlevel}no`));
+            let userl=document.getElementById("username");
+            updatehighscore();
+            
+            // if(no == null){
+            //     no = 0;
+            //     y.innerHTML = no;
+            // }
+            // else{
+            function updatehighscore(){  
+                
+                y.innerHTML = "SCORE CARD <br>" + `[${dlevel} - ${glevel}]` + "<br>"; 
+                if(no<=5){
+                for(i=1;i<=no;i+=1){
+                    let sp = localStorage.getItem(`${glevel}${dlevel}score${i}`);
+                    let np = localStorage.getItem(`${glevel}${dlevel}name${i}`);
+                    y.innerHTML = y.innerHTML + "<br>" +`${i} ${np} ${sp}s`;
+                }
+                }
+                else{
+                    for(i=1;i<=5;i+=1){
+                    let sp = localStorage.getItem(`${glevel}${dlevel}score${i}`);
+                    let np = localStorage.getItem(`${glevel}${dlevel}name${i}`);
+                    y.innerHTML = y.innerHTML + "<br>" +`${i} ${np} ${sp}s`;
+                }
+                }
+            }
+            // // }
+            // scores = localStorage.getItem('scores');
+            // if(scores == null){
+            //     y.innerHTML = "Scores not yet recorded";
+            // }
+            // else{
+            //     y.innerHTML = scores;
+                // let l = scores.length;
+                // if(l <= 5){
+                //     for(i = 0;i < scores.length();i+=1){
+                //         y.innerHTML = y.innerHTML + `\n ${scores[i][0]}  ${scores[i][1]}`;
+                //     }
+                // }
+                // else{
+                //     for(i = 0;i < 5;i += 1){
+                //         y.innerHTML = y.innerHTML + `\n ${scores[i][0]}  ${scores[i][1]}`;
+                //     }
+                // }
+            // }
+            // y.innerHTML = "Highest timing : " + scores[0];
+            // let diff = localStorage.getItem("difference");
+            // y.innerHTML = diff;
+            
+            // game.setAttribute("style","dislpay: none;");
+            
+            // game1.setAttribute("style","display: inline-block;");
+            // function sg(){
+            //     let gameL = document.getElementById("game");
+            //     let cdownl = document.getElementById("cdown");
+            //     let startL = document.getElementById("start");
+            //     startL.setAttribute("style","display: none;");
+            //     cdownl.setAttribute("style","display: block;");
+            // }
+            function getusername(){
+                user = prompt("Enter User Name","");
+                if(user == null || user == ""){
+                    user = "Guest";
+                }
+                userl.innerHTML = "Username: " + user;                
+            }
+            function randomn(){
+                r = 1;
+                let a1=[];
+                for(let i =0;i<gz;i++){
+                    let temp = i+1;
+                    a1[i] = temp;
+                }
+                let a3 = [];
+                let n = gz;
+                let n1 = 0;
+                let e = 5;
+                for(i = 0;i<gz;i++){
+                    let m = n1 + Math.floor(Math.random() * n);
+                    a2[i] = a1[m];
+                    a3[i] = a1[m];
+                    a1[m] = 0;
+                    a1.sort();
+                    n -= 1;
+                    n1 += 1;
+                }
+                let k;
+                for(i = 1;i <= gz;i += 1){
+                    let x = document.getElementById(`1${bname}tn${i}`);
+                    let z = document.getElementById(`2${bname}tn${i}`);
+                    x.innerHTML = a2[i-1];
+                    z.innerHTML = a2[i-1];
+                    k = 0.1 + a2[i-1] / (5 / 4 * boxes);
+                    x.setAttribute("style",`background-color: rgb(0, 128, 0,${k});`);
+                    z.setAttribute("style",`background-color: rgb(0, 128, 0,${k});`);
+                }
+            }
+            function refresh(){
+                let k;
+                for(i = 1;i <= gz;i += 1){
+                    let x = document.getElementById(`1${bname}tn${i}`);
+                    let z = document.getElementById(`2${bname}tn${i}`);
+                    x.innerHTML = a2[i-1];
+                    z.innerHTML = a2[i-1];
+                    k = 0.1 + a2[i-1] / (5 / 4 * boxes);
+                    x.setAttribute("style",`background-color: rgb(0, 128, 0,${k});`);
+                    z.setAttribute("style",`background-color: rgb(0, 128, 0,${k});`);
+                }
+            }
+            function oc(num){
+                btnclickS.play();
+                if(a2[num - 1] == r){
+                    a2[num - 1] += gz;
+                    if(a2[num - 1] > boxes){
+                        a2[num - 1] = "";
+                    }
+                    if(r == boxes){
+                        refresh();
+                        stopc();
+                    }
+                    r += 1;
+                    refresh();
+                }
+                // if(a2[num - 1] == boxes && r == boxes+1){
+                //     if(a2[num - 1] <= (boxes - gz) && a2[num - 1] >= 1){
+                //         a2[num - 1] += gz;
+                //     }
+                //     else
+                //         a2[num - 1] = "";   
+                //     refresh();
+                //     stopc();
+                // }
+            }
+            let a = 2;
+            let t,ty;
+
+
+            function cd(){
+                if(timerr == true){
+                    timerr = false;
+                    clearInterval(sclock);
+                }
+                if(user == null){
+                    user = prompt("Enter User Name","");
+                    if(user == null || user == ""){
+                        user = "Guest";
+                    }
+                    userl.innerHTML = "Username: " + user;  
+                }
+                if(gameL != null){
+                gameL.setAttribute("style","display: none;");
+                }
+                getgrid();
+                difflevel();
+                no = Number(localStorage.getItem(`${glevel}${dlevel}no`));
+                updatehighscore();
+                a = 2;
+                gameL.setAttribute("style","display: none;");
+                startL.setAttribute("style","display: none;");
+                cdownl.setAttribute("style","display: inline-block;");
+                let ctextl = document.getElementById("ctext");
+                ctextl.innerHTML = 3;
+                ty = setInterval(set,1000);
+                t = setTimeout(cancel,3000);
+            }
+
+
+            function set(){
+                let ctextl = document.getElementById("ctext");
+                ctextl.innerHTML = a;
+                a -= 1 ;
+            }
+            function cancel(){
+                clearInterval(ty);
+                clearTimeout(t);
+                cdownl.setAttribute("style","display: none;");
+                gameL.setAttribute("style","display: inline-block;");
+                randomn();
+                startc();
+            }
+            function startc(){
+                starttime = new Date().getTime();
+
+                
+                timerr = true;
+                sclock = setInterval(update,1);
+            }
+            function update(){
+                let updatetime = new Date().getTime();
+                let difference = updatetime - starttime;
+                let s = document.getElementById("sc");
+                let seconds = Math.floor(difference / 1000);
+                let milliseconds = difference % 1000;
+                seconds = (seconds < 10) ? "0" + seconds : seconds;
+                milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
+                score = seconds + ":" + milliseconds;
+                s.innerHTML = "TIME:"+ score + "s";
+            }
+            function stopc(){
+                clearInterval(sclock);
+                timerr = false;
+                let s = document.getElementById("sc");
+                updatescore(score);
+                gameL.setAttribute("style","display: none;");
+                startL.setAttribute("style","display: inline-block;");
+                if(score != null){
+                    resultl.innerHTML = "<br>"+`Your Score: ${score}s <br>` + "<br>START";
+                }
+                // sortandstore();
+                checkandscore();
+                
+            }
+            function updatescore(timescorekk){
+                x.innerHTML = "Your Score : " + timescorekk +"s";
+            }
+            function hello(){
+                alert("hello");
+            }
+            function restart1(){
+                gameL.setAttribute("style","display: none;");
+                startL.setAttribute("style","display: inline-block;");
+                startL.innerHTML = "RESTART"
+                if(no<=5){
+                for(i=1;i<=no;i+=1){
+                    let sp = localStorage.getItem(`score${i}`);
+                    let np = localStorage.getItem(`name${i}`);
+                    startL.innerHTML = startL.innerHTML + "<br>" +`${i} ${np} ${sp}`;
+                }
+                }
+                else{
+                    for(i=1;i<=5;i+=1){
+                    let sp = localStorage.getItem(`score${i}`);
+                    let np = localStorage.getItem(`name${i}`);
+                    startL.innerHTML = startL.innerHTML +"<br>" + `${i} ${np} ${sp}`;
+                }
+                } 
+            }
+            function sortandstore(){ 
+                // sortByCol(scores,0);
+                no += 1;
+                if(no == 1){
+                    localStorage.setItem(`${glevel}${dlevel}score${no}`,score);
+                    localStorage.setItem(`${glevel}${dlevel}name${no}`,user);
+                    localStorage.setItem(`${glevel}${dlevel}no`,no);
+                }
+                else{
+                    localStorage.setItem("no",no);
+                    for(let i=1;i<no;i++)
+                    {
+                        if(score < localStorage.getItem(`${glevel}${dlevel}score${i}`))
+                        {
+                            for(let j=no;j>i;j--)
+                            {   let r= j-1;
+                                let sp = localStorage.getItem(`${glevel}${dlevel}score${r}`);
+                                let np = localStorage.getItem(`${glevel}${dlevel}name${r}`);
+                                // console.log(np,'swapped with',sp);
+                                localStorage.setItem(`${glevel}${dlevel}score${j}`,sp);
+                                localStorage.setItem(`${glevel}${dlevel}name${j}`,np);
+                            }
+                            localStorage.setItem(`${glevel}${dlevel}score${i}`,score);
+                            localStorage.setItem(`${glevel}${dlevel}name${i}`,user);
+                            break;
+                        }
+                        else{
+                            localStorage.setItem(`${glevel}${dlevel}score${no}`,score);
+                            localStorage.setItem(`${glevel}${dlevel}name${no}`,user);
+                        }
+                    }
+                }
+            }
+            function checkandscore(){
+                if(no == 0){
+                    no += 1;
+                    localStorage.setItem(`${glevel}${dlevel}score${no}`,score);
+                    localStorage.setItem(`${glevel}${dlevel}name${no}`,user);
+                    localStorage.setItem(`${glevel}${dlevel}no`,no);
+                }
+                else{
+                    let i;
+                    let k = 0;
+                    for(let i=1;i<=no;i++){
+                        if(user === localStorage.getItem(`${glevel}${dlevel}name${i}`)){
+                            k = 1;
+                            if(score < localStorage.getItem(`${glevel}${dlevel}score${i}`)){
+                                localStorage.setItem(`${glevel}${dlevel}score${i}`,score);
+                            }
+                            break;
+                        }
+                    }
+                    if(k == 0){
+                        // alert('hrll');
+                        no += 1;
+                        localStorage.setItem(`${glevel}${dlevel}score${no}`,score);
+                        localStorage.setItem(`${glevel}${dlevel}name${no}`,user); 
+                        localStorage.setItem(`${glevel}${dlevel}no`,no);
+                    }
+                }
+                sortthescores();
+            }
+            function sortthescores(){
+                // alert("hello");
+                let n = no; 
+                for (let i = 1; i < n; i++){ 
+                    for (let  j = 1; j < n-i+1; j++){
+                        let s1 = localStorage.getItem(`${glevel}${dlevel}score${j}`);
+                        let n1 = localStorage.getItem(`${glevel}${dlevel}name${j}`);
+                        let h = j+1;
+                        let s2 = localStorage.getItem(`${glevel}${dlevel}score${h}`); 
+                        let n2 = localStorage.getItem(`${glevel}${dlevel}name${h}`);
+                        if (s1 > s2) 
+                        { 
+                            let temps = s1; 
+                            s1 = s2; 
+                            s2 = temps;
+                            let tempn = n1;
+                            n1 = n2;
+                            n2 = tempn;
+                        }
+                        localStorage.setItem(`${glevel}${dlevel}score${j}`,s1);
+                        localStorage.setItem(`${glevel}${dlevel}name${j}`,n1);
+                        localStorage.setItem(`${glevel}${dlevel}score${h}`,s2);
+                        localStorage.setItem(`${glevel}${dlevel}name${h}`,n2);
+                    }
+                }
+                updatehighscore();
+            }
+        </script>
+    </body>
+</html>

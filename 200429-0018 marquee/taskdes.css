@@ -1,0 +1,423 @@
+
+body{
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+.topheader{
+  /* position: fixed; */
+  background-image: url("valuescalegreen.jpg") ;
+  background-size: cover;
+  height: 70px;
+  width: 100%;
+  /* background-color: rgb(16, 236, 45); */
+  color: black;
+  display:table;
+}
+.textcontent{
+  color: rgb(251, 255, 0);
+  font-size: 3em;
+  font-weight: bolder;
+  text-align: center;
+  display:table-cell;
+  vertical-align:middle ;
+}
+/* .table{ flexbo
+  background-color: rgb(255, 255, 255);
+  color: black;
+    /* display: inline-block; */
+    /* min-width: 50%;
+    min-height: 50%; */
+    /* padding: 20px;
+    border: 1px solid rgb(100, 60, 14);
+    border-radius: 21px; */
+    /* margin: auto; */
+  /* } */ 
+.screenfull{
+  align-content: center;
+  height: 200px;
+  width: 70%;
+  max-width: 750px;
+  background-color: white;
+  color: black;
+}
+.tablescr{
+  height: 80px;
+  font-size: 30px;
+}
+/* .table1{ 
+  /* width: 260px;
+  height: 260px; 
+  background-color: brown;
+  border: 1px solid rgb(16, 236, 45);
+  border-radius: 21px;
+  margin: auto;
+  display: inline-block;
+  font-size: 25px;
+} */
+.countdown{
+  font-size: 168px;
+  align-items: center;
+  color: black;
+}
+.a{
+  position: relative;
+  height: 30px;
+  width: 100px;
+  text-align: center;
+  background-color: rgb(60, 63, 60);
+  color: rgb(16, 236, 45);
+  border: black;
+}
+.b{
+  position: relative;
+  height: 30px;
+  width: 150px;
+  background-color: rgb(60, 63, 60);
+  color: rgb(16, 236, 45);
+  border: black;
+}
+.scores{
+  display: block;
+  position:relative;
+}
+.button{
+  margin: 4px 1px;
+  line-height: 40px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(0, 128, 0,1.0);
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  height: 40px;
+  width: 40px;
+  border: 1px solid rgb(251, 255, 0);
+  border-radius: 4px;
+}
+.bt{
+  color: black;
+}
+.button:hover {
+    transform: scale(1.0);
+    cursor: pointer;
+    background-color: white;
+}
+.marqueeL5 {
+  height: 46px;
+  width: 244px;
+  /*border: 2px solid #eee;*/
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0px auto;
+}
+
+.marqueeL6 {
+  height: 46px;
+  width: 294px;
+  /*border: 2px solid #eee;*/
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0px auto;
+}
+
+.marqueeL5--inner {
+  display: block;
+  width: 200%;
+  margin: 0px;
+  position: absolute;
+  animation: marqueeL5 20s linear infinite;
+}
+
+.marqueeL6--inner {
+  display: block;
+  width: 200%;
+  margin: 0px;
+  position: absolute;
+  animation: marqueeL6 20s linear infinite;
+}
+
+/* .marquee--inner:hover {
+  animation-play-state: paused;
+} */
+
+/*.half {
+  float: left;
+  width: 10%;
+}*/
+
+span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marqueeL5 {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+@keyframes marqueeL6 {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+
+.marqueeR5 {
+  height: 46px;
+  width: 244px;
+  /*border: 2px solid #eee;*/
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0px auto;
+}
+
+.marqueeR6 {
+  height: 46px;
+  width: 294px;
+  /*border: 2px solid #eee;*/
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0px auto;
+}
+
+.marqueeR5--inner {
+  display: block;
+  width: 200%;
+  margin: 0px;
+  position: absolute;
+  animation: marqueeR5 20s linear infinite;
+}
+
+.marqueeR6--inner {
+  display: block;
+  width: 200%;
+  margin: 0px;
+  position: absolute;
+  animation: marqueeR6 20s linear infinite;
+}
+
+/* .marquee--inner:hover {
+  animation-play-state: paused;
+} */
+
+/*.half {
+  float: left;
+  width: 10%;
+}*/
+
+span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marqueeR5 {
+  0% { right: 0; }
+  100% { right: -100%; }
+}
+@keyframes marqueeR6 {
+  0% { right: 0; }
+  100% { right: -100%;}
+}
+
+@media screen and (orientation : portrait){
+  body{
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+  }
+
+  .topheader{
+    /* position: fixed; */
+    background-image: url("valuescalegreen.jpg") ;
+    background-size: cover;
+    height: 70px;
+    width: 100%;
+    /* background-color: rgb(16, 236, 45); */
+    color: black;
+    display:table;
+  }
+
+  .textcontent{
+    font-size: 2em;
+    text-align: center;
+    display:table-cell;
+    vertical-align:middle ;
+  }
+
+  .screenfull{
+    align-content: center;
+    margin: 0px;
+    text-align: center;
+    height: 600px;
+    width: 90%;
+    max-width: 1000px;
+    background-color: white;
+    color: black;
+ }
+
+ .tablescr{
+  height:80px; 
+  font-size: 60px;
+   /* line-height: 600px; */
+ }
+ 
+
+  .b{
+    padding: 0;
+    margin: 5px;
+    position: relative;
+    height: 60px;
+    font-size: 1.5em;
+    width: 30%;
+    background-color: rgb(60, 63, 60);
+    color: rgb(16, 236, 45);
+    border: black;
+    white-space: nowrap;
+  }
+
+  .a{
+    position: relative;
+    font-size: 1.5em;
+    height: 60px;
+    width: auto;
+    text-align: center;
+    background-color: rgb(60, 63, 60);
+    color: rgb(16, 236, 45);
+    border: black;
+  }
+
+  .button{
+    margin: 12px 3px;
+    line-height: 120px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 128, 0,1.0);
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    height: 120px;
+    width: 120px;
+    border: 3px solid rgb(251,255,0);
+    border-radius: 4px;
+  }
+  .bt{
+    color: black;
+  }
+
+  .marqueeL5 {
+    height: 138px;
+    width: 716px;
+    /*border: 2px solid #eee;*/
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0px auto;
+  }
+
+  .marqueeL6 {
+    height: 138px;
+    width: 860px;
+    /*border: 2px solid #eee;*/
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0px auto;
+  }
+  
+  .marqueeL5--inner {
+    display: block;
+    width: 200%;
+    margin: 0px;
+    position: absolute;
+    animation: marqueeL5 20s linear infinite;
+  }
+
+  .marqueeL6--inner {
+    display: block;
+    width: 200%;
+    margin: 0px;
+    position: absolute;
+    animation: marqueeL6 20s linear infinite;
+  }
+  
+  /* .marquee--inner:hover {
+    animation-play-state: paused;
+  } */
+  
+  /*.half {
+    float: left;
+    width: 10%;
+  }*/
+  
+  span {
+    float: left;
+    width: 50%;
+  }
+  
+  @keyframes marqueeL5 {
+    0% { left: 0; }
+    100% { left: -100%; }
+  }
+  @keyframes marqueeL6 {
+    0% { left: 0; }
+    100% { left: -100%; }
+  }
+
+  .marqueeR5 {
+    height: 138px;
+    width: 716px;
+    /*border: 2px solid #eee;*/
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0px auto;
+  }
+
+  .marqueeR6 {
+    height: 138px;
+    width: 860px;
+    /*border: 2px solid #eee;*/
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0px auto;
+  }
+  
+  .marqueeR5--inner {
+    display: block;
+    width: 200%;
+    margin: 0px;
+    position: absolute;
+    animation: marqueeR5 20s linear infinite;
+  }
+
+  .marqueeR6--inner {
+    display: block;
+    width: 200%;
+    margin: 0px;
+    position: absolute;
+    animation: marqueeR6 20s linear infinite;
+  }
+  
+  /* .marquee--inner:hover {
+    animation-play-state: paused;
+  } */
+  
+  /*.half {
+    float: left;
+    width: 10%;
+  }*/
+  
+  span {
+    float: left;
+    width: 50%;
+  }
+  
+  @keyframes marqueeR5 {
+    0% { right: 0; }
+    100% { right: -100%; }
+  }
+  @keyframes marqueeR6 {
+    0% { right: 0; }
+    100% { right: -100%; }
+  }
+}
